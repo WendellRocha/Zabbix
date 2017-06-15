@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>3.0</version>
+    <date>2016-11-12T13:46:54Z</date>
+    <groups>
+        <group>
+            <name>CMC</name>
+        </group>
+    </groups>
+    <hosts>
+        <host>
+            <host>CMC</host>
+            <name>CMC</name>
+            <description/>
+            <proxy/>
+            <status>0</status>
+            <ipmi_authtype>-1</ipmi_authtype>
+            <ipmi_privilege>2</ipmi_privilege>
+            <ipmi_username/>
+            <ipmi_password/>
+            <tls_connect>1</tls_connect>
+            <tls_accept>1</tls_accept>
+            <tls_issuer/>
+            <tls_subject/>
+            <tls_psk_identity/>
+            <tls_psk/>
+            <templates>
+                <template>
+                    <name>CMCIII</name>
+                </template>
+            </templates>
+            <groups>
+                <group>
+                    <name>CMC</name>
+                </group>
+            </groups>
+            <interfaces>
+                <interface>
+                    <default>1</default>
+                    <type>2</type>
+                    <useip>1</useip>
+                    <ip>192.168.1.223</ip>
+                    <dns/>
+                    <port>161</port>
+                    <bulk>1</bulk>
+                    <interface_ref>if1</interface_ref>
+                </interface>
+            </interfaces>
+            <applications/>
+            <items/>
+            <discovery_rules/>
+            <macros>
+                <macro>
+                    <macro>{$CMCIIIVARVALUEINT.PORTA}</macro>
+                    <value>Closed</value>
+                </macro>
+            </macros>
+            <inventory/>
+        </host>
+    </hosts>
+    <triggers>
+        <trigger>
+            <expression>{CMC:cmcIIIVarValueInt.Temperatura.now()}&gt;=28.5</expression>
+            <name>Alarme de alta temperatura</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description>A temperatura do CPD está muito alta</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{CMC:cmcIIIVarValueInt.Temperatura.now()}&lt;=15</expression>
+            <name>Alarme de baixa temperatura</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description>A temperatura do CPD está muito baixa</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{CMC:cmcIIIVarValueInt.Clima.now()}=1</expression>
+            <name>Alarme de clima</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description>Problema na climatização do CPD</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{CMC:cmcIIIVarValueInt.Energisa.now()}=0</expression>
+            <name>Alarme de concessionária</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description>A concessionária está ausente</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{CMC:cmcIIIVarValueInt.Umidade.now()}&gt;=80</expression>
+            <name>Alarme de umidade alta</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description>A umidade no CPD está muito alta</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{CMC:cmcIIIVarValueInt.Umidade.now()}&lt;=30</expression>
+            <name>Alarme de umidade baixa</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description>A umidade no CPD está muito baixa</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{CMC:cmcIIIVarValueInt.Agua.now()}=1</expression>
+            <name>Alarme de água entre-forro</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description>Há água no entre-forro</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{CMC:cmcIIIVarValueInt.Temperatura.now()}&gt;=26.5 and {CMC:cmcIIIVarValueInt.Temperatura.now()}&lt;28.5</expression>
+            <name>Aviso de alta temperatura</name>
+            <url/>
+            <status>0</status>
+            <priority>2</priority>
+            <description>A temperatura do CPD está acima do normal</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{CMC:cmcIIIVarValueInt.Temperatura.now()}&lt;=16 and {CMC:cmcIIIVarValueInt.Temperatura.now()}&gt;15</expression>
+            <name>Aviso de baixa temperatura</name>
+            <url/>
+            <status>0</status>
+            <priority>2</priority>
+            <description>A temperatura do CPD está abaixo do normal</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{CMC:cmcIIIVarValueInt.Porta.now()}=1</expression>
+            <name>Aviso de porta aberta</name>
+            <url/>
+            <status>0</status>
+            <priority>2</priority>
+            <description>A porta do CPD está aberta</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{CMC:cmcIIIVarValueInt.Umidade.now()}&gt;=75 and {CMC:cmcIIIVarValueInt.Umidade.now()}&lt;80</expression>
+            <name>Aviso de umidade alta</name>
+            <url/>
+            <status>0</status>
+            <priority>2</priority>
+            <description>A umidade do CPD está acima do normal</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{CMC:cmcIIIVarValueInt.Umidade.now()}&lt;=35 and {CMC:cmcIIIVarValueInt.Umidade.now()}&gt;30</expression>
+            <name>Aviso de umidade baixa</name>
+            <url/>
+            <status>0</status>
+            <priority>2</priority>
+            <description>A umidade do CPD está abaixo do normal</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{CMC:cmcIIIVarValueInt.Falha.Stratos.now()}=1</expression>
+            <name>Falha no Stratos</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description>Falha no Stratos</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{CMC:cmcIIIVarValueInt.GMG.now()}=0</expression>
+            <name>Gerador em automático</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description>O gerador está em manual</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{CMC:cmcIIIVarValueInt.Stratos.Alarme.now()}=1</expression>
+            <name>Statros em alarme</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description>O Stratos está em alarme</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{CMC:cmcIIIVarValueInt.UPS.Alarme.now()}=1</expression>
+            <name>UPS em alarme</name>
+            <url/>
+            <status>0</status>
+            <priority>5</priority>
+            <description>A UPS está em alarme</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{CMC:cmcIIIVarValueInt.UPS.Aviso.now()}=1</expression>
+            <name>UPS em aviso</name>
+            <url/>
+            <status>0</status>
+            <priority>2</priority>
+            <description>A UPS está em aviso</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+    </triggers>
+</zabbix_export>
