@@ -2,12 +2,11 @@
 # author: Wendell Rocha <wendellrocha@outlook.com>
 # github.com/WendellRocha
 # 06/15/2017 at 12:14
-# basede on Adail Spinola code: github.com/zabbix-brasil/livrozabbix2014
+# based on Adail Spinola code: github.com/zabbix-brasil/livrozabbix2014
 #------------------------------------------------
 
 #!/bin/bash
 
-# Detecta se eh um usuario com poderes de root que esta executando o script
 CMDLINE=$0;
 MYUID=$(id | cut -d= -f2 | cut -d\( -f1)
 if [ ! "$MYUID" -eq 0 ] ; then
