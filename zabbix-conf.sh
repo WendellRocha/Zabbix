@@ -8,8 +8,8 @@
 #!/bin/bash
 
 CMDLINE=$0
-MYUID=$(id | cut -d= -f2 | cut-d\( -f1)
-if [ ! "MYUID" -eq 0 ] ; then
+MYUID=$(id | cut -d= -f2 | cut -d\( -f1)
+if [ ! "$MYUID" -eq 0 ] ; then
 	echo "Você deve ser root para executar este script."
 	echo "Execute o comando \"sudo $CMDLINE\""
 	exit 1
