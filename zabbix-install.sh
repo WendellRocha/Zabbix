@@ -21,7 +21,7 @@ apt dist-upgrade -y
 apt install -y build-essential libopenipmi-dev snmp apache2 php libapache2-mod-php php-gd fping curl
 apt install -y fping curl libsnmp-dev libcurl4-gnutls-dev libxml2-dev libxml2
 apt install -y libsnmp-dev libcurl4-openssl-dev vim libssh2-1-dev libssh2-1 libcurl3-gnutls-dev
-apt install -y libcurl-dev php-mbstring php-xml php-net-socket php-ldap php-curl libopenipmi-dev
+apt install -y libcurl-dev php-net-socket php-ldap php-curl libopenipmi-dev php-bcmath php-xml php-mbstring
 apt install -y python-software-properties mysql-server mysql-client libmysqld-dev libpqxx-dev php-mysql   
 
 VERSAO=$1;
